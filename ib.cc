@@ -112,7 +112,6 @@ QpContext::QpContext(IbContext &ib_ctx) : ib_ctx_(ib_ctx) {
   qp_init_attr.qp_type = IBV_QPT_RC;
   qp_ = ibv_create_qp(ib_ctx_.pd_, &qp_init_attr);
   RequireNotNull(qp_, "ibv_create_qp failed");
-  spdlog::info("Max inline data: {}", qp_init_attr.cap.max_inline_data);
 
   static std::mt19937 gen(42);
   std::uniform_int_distribution<uint32_t> dis(0, 1'000'000);
