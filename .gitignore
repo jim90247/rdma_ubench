@@ -1,0 +1,5 @@
+build/
+.cmake/
+compile_commands.json
+
+*.o
